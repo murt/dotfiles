@@ -24,3 +24,8 @@ augroup fish
     endif
     autocmd FileType fish setlocal textwidth=79
 augroup end
+
+"RUST
+augroup rust
+    autocmd FileType rust nnoremap FF :RustFmt<CR>
+augroup end
