@@ -35,6 +35,8 @@ else
     Plug 'ionide/Ionide-vim', {'do': 'make fsautocomplete'}
 endif
 
+Plug 'dag/vim-fish'
+
 call plug#end()
 
 "Coc Plugins
