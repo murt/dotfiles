@@ -16,3 +16,11 @@ augroup end
 augroup makefile
     autocmd FileType make setlocal noexpandtab
 augroup end
+
+"FISHSHELL
+augroup fish
+    if executable('fish')
+        autocmd FileType fish compiler fish
+    endif
+    autocmd FileType fish setlocal textwidth=79
+augroup end
