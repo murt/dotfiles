@@ -1,7 +1,7 @@
 "Determine the correct path to plugins
-let plugin_path = '$HOME/.local/share/nvim/plugins'
+let plugin_path='$HOME/.local/share/nvim/plugins'
 if has('win32')
-    let plugin_path = './plugins'
+    let plugin_path='./plugins'
 endif
 
 "Load plugins
@@ -36,6 +36,10 @@ else
 endif
 
 Plug 'dag/vim-fish'
+
+Plug 'vim-syntastic/syntastic'
+
+Plug 'preservim/nerdtree'
 
 call plug#end()
 
