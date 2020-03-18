@@ -35,3 +35,6 @@ inoremap <C-Y> <C-O><C-R>
 
 "Formatting shortcut (TODO: See if this can be tied into specific formatters)
 nnoremap FF gg=G``
+
+"Allow enter to be used in autocompletion
+inoremap <expr> <cr> ((pumvisible())?("\<C-Y>"):("\<CR>"))
