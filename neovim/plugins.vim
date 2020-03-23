@@ -29,23 +29,29 @@ Plug 'ntpeters/vim-better-whitespace'
 
 Plug 'rust-lang/rust.vim'
 
-if has('win32')
-    Plug 'ionide/Ionide-vim', {'do': 'install.cmd'}
-else
-    Plug 'ionide/Ionide-vim', {'do': 'make fsautocomplete'}
-endif
-
 Plug 'dag/vim-fish'
 
 Plug 'vim-syntastic/syntastic'
 
 Plug 'preservim/nerdtree'
 
+if has('win32')
+    Plug 'fsharp/vim-fsharp', { 'for': 'fsharp', 'do': 'install.cmd' }
+else
+    Plug 'fsharp/vim-fsharp', { 'for': 'fsharp', 'do': 'make' }
+endif
+
 call plug#end()
 
 "Coc Plugins
-let g:coc_global_extensions=['coc-json', 'coc-css', 'coc-html', 'coc-tsserver', 'coc-rls', 'coc-omnisharp']
+let g:coc_global_extensions=['coc-json', 'coc-css', 'coc-html', 'coc-tsserver', 'coc-rls', 'coc-fsharp']
 
 "Supertab
 "Change the completion type so that it starts at the top
-let g:SuperTabDefaultCompletionType = '<C-X><C-O>'
+let g:SuperTabDefaultCompletionType='<C-X><C-O>'
+
+"Ctrl-P
+let g:ctrlp_custom_ignore={
+            \ 'dir': '\v[\/](node_modules|target)',
+            \ 'file': '\v\.(exe|so|dll|lock|log)$',
+            \}
