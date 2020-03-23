@@ -28,6 +28,6 @@ augroup end
 "RUST
 augroup rust
     autocmd FileType rust nnoremap FF :RustFmt<CR>
-    autocmd FileType rust nnoremap <C-S-B> :Cargo build<CR>
-    autocmd FileType rust nnoremap <C-S-R> :Cargo run<CR>
+    autocmd FileType rust nnoremap <leader>b :Cargo build<CR>
+    autocmd FileType rust nnoremap <leader>r :Cargo run<CR>
 augroup end
