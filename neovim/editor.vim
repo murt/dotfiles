@@ -1,3 +1,5 @@
+set hidden
+
 set encoding=utf-8
 
 set title

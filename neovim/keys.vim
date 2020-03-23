@@ -33,7 +33,7 @@ inoremap <C-Z> <C-O>u
 noremap <C-Y> <C-R>
 inoremap <C-Y> <C-O><C-R>
 
-"Formatting shortcut (TODO: See if this can be tied into specific formatters)
+"Formatting shortcut - see filetypes.vim for syntax specific formatters
 nnoremap FF gg=G``
 
 "Allow enter to be used in autocompletion
