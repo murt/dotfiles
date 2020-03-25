@@ -33,7 +33,7 @@ Plug 'dag/vim-fish'
 
 Plug 'vim-syntastic/syntastic'
 
-Plug 'preservim/nerdtree'
+Plug 'voldikss/vim-floaterm'
 
 if has('win32')
     Plug 'fsharp/vim-fsharp', { 'for': 'fsharp', 'do': 'install.cmd' }
@@ -55,3 +55,9 @@ let g:ctrlp_custom_ignore={
             \ 'dir': '\v[\/](node_modules|target)',
             \ 'file': '\v\.(exe|so|dll|lock|log)$',
             \}
+
+"Floaterm
+let g:floaterm_width=0.5
+let g:float_height=0.5
+let g:floaterm_position='center'
+let g:floaterm_borderchars=['', '', '', '', '', '', '', '']
