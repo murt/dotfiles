@@ -1,6 +1,11 @@
 "These augroups represent filetype configuration that is small enough to not
 "warrant an entire plugin in ftplugins
 
+"PRETTIER-ABLE
+augroup prettier
+    autocmd FileType json,jsonc,javascript,javascript.jsx,typescript,typescript.tsx,yaml,css,less,sass,scss,html nnoremap :Prettier<CR>
+augroup end
+
 "JSON
 augroup json
     autocmd FileType json setlocal softtabstop=4

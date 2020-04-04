@@ -41,6 +41,10 @@ else
     Plug 'fsharp/vim-fsharp', { 'for': 'fsharp', 'do': 'make' }
 endif
 
+if executable('npm')
+    Plug 'prettier/vim-prettier', { 'do': 'npm install' }
+endif
+
 call plug#end()
 
 "Coc Plugins
