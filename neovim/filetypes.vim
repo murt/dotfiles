@@ -3,7 +3,7 @@
 
 "PRETTIER-ABLE
 augroup prettier
-    autocmd FileType json,jsonc,javascript,javascript.jsx,typescript,typescript.tsx,yaml,css,less,sass,scss,html nnoremap :Prettier<CR>
+    autocmd FileType json,jsonc,javascript,javascript.jsx,typescript,typescript.tsx,yaml,css,less,sass,scss,html nnoremap FF :Prettier<CR>
 augroup end
 
 "JSON
