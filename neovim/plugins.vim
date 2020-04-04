@@ -56,7 +56,7 @@ let g:SuperTabDefaultCompletionType='<C-X><C-O>'
 
 "Ctrl-P
 let g:ctrlp_custom_ignore={
-            \ 'dir': '\v[\/](node_modules|target)',
+            \ 'dir': '\v[\/](node_modules|target|dist)',
             \ 'file': '\v\.(exe|so|dll|lock|log)$',
             \}
 
