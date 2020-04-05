@@ -3,7 +3,7 @@
 
 "PRETTIER-ABLE
 augroup prettier
-    autocmd FileType json,jsonc,javascript,javascript.jsx,typescript,typescript.tsx,yaml,css,less,sass,scss,html nnoremap FF :Prettier<CR>
+    autocmd FileType json,jsonc,javascript,javascript.jsx,typescript,typescriptreact,yaml,css,less,sass,scss,html nnoremap FF :Prettier<CR>
 augroup end
 
 "JSON
@@ -35,4 +35,8 @@ augroup rust
     autocmd FileType rust nnoremap FF :RustFmt<CR>
     autocmd FileType rust nnoremap <leader>b :FloatermNew cargo build; read; exit<CR>
     autocmd FileType rust nnoremap <leader>r :FloatermNew cargo run; read; exit<CR>
+augroup end
+
+"TYPESCRIPT
+augroup typescript
 augroup end
