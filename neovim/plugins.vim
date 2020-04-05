@@ -45,6 +45,8 @@ if executable('npm')
     Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 endif
 
+Plug 'HerringtonDarkholme/yats.vim'
+
 call plug#end()
 
 "Coc Plugins
