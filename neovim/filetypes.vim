@@ -40,3 +40,15 @@ augroup end
 "TYPESCRIPT
 augroup typescript
 augroup end
+
+"C#
+augroup csharp
+    if has('win32')
+        autocmd FileType cs nnoremap [omnisharp] <nop>
+        autocmd FileType cs nnoremap FF :OmniSharpCodeFormat<CR>
+        autocmd FIleType cs nnoremap gd :OmniSharpGotoDefinition<CR>
+        autocmd FileType cs nmap <leader>o [omnisharp]
+        autocmd FileType cs nnoremap [omnisharp]r :OmniSharpRename<CR>
+        autocmd FileType cs nnoremap [omnisharp]t :OmniSharpTypeLookup<CR>
+    endif
+augroup end
