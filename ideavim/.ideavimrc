@@ -1,0 +1,18 @@
+"Editor
+set incsearch
+set smartcase
+
+let mapleader=','
+set easymotion
+
+noremap ; :
+inoremap jk <esc>
+
+"Undo/Redo
+noremap <C-Z> u
+inoremap <C-Z> <C-O>u
+noremap <C-Y> <C-R>
+inoremap <C-Y> <C-O><C-R
+
+"Actions
+nnoremap FF :action ReformatCode<CR>
