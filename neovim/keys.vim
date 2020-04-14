@@ -19,10 +19,10 @@ nnoremap j gj
 nnoremap k gk
 
 "Tabs
-nnoremap <leader>t :tabnew<CR>
-nnoremap <leader>w :tabclose<CR>
-nnoremap <leader>[ :tabprevious<CR>
-nnoremap <leader>] :tabnext<CR>
+nnoremap <silent> <leader>t :tabnew<CR>
+nnoremap <silent> <leader>w :tabclose<CR>
+nnoremap <silent> <leader>[ :tabprevious<CR>
+nnoremap <silent> <leader>] :tabnext<CR>
 
 "Clear search highlights quickly
 nmap <silent> <leader>/ :nohlsearch<CR>
@@ -38,3 +38,16 @@ nnoremap FF gg=G``
 
 "Allow enter to be used in autocompletion
 inoremap <expr> <cr> ((pumvisible())?("\<C-Y>"):("\<CR>"))
+
+"PLUGINS
+
+"GoldenView
+let g:goldenview__enable_default_mapping=0
+nmap <silent> <C-@>     :SwitchGoldenViewToggle<CR>
+nmap <silent> <C-space> :SwitchGoldenViewToggle<CR>
+nmap <silent> <C-N>     <Plug>GoldenViewSplit
+nmap <silent> <C-K>     <Plug>GoldenViewPrevious
+nmap <silent> <C-J>     <Plug>GoldenViewNext
+
+"NERDTree
+nnoremap <silent> <leader>e :NERDTreeToggle<CR>

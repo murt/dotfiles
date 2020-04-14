@@ -17,7 +17,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 
 Plug 'easymotion/vim-easymotion'
 
-Plug 'spolu/dwm.vim'
+Plug 'zhaocai/GoldenView.Vim'
 
 Plug 'ervandew/supertab'
 
@@ -35,6 +35,8 @@ Plug 'voldikss/vim-floaterm'
 
 Plug 'vim-syntastic/syntastic'
 
+Plug 'Shougo/echodoc.vim'
+
 if has('win32')
     Plug 'fsharp/vim-fsharp', { 'for': 'fsharp', 'do': 'install.cmd' }
 else
@@ -51,7 +53,14 @@ endif
 
 Plug 'HerringtonDarkholme/yats.vim'
 
+Plug 'mhinz/vim-startify'
+
+Plug 'preservim/nerdtree'
+
 call plug#end()
+
+"Coc Plugins
+let g:coc_global_extensions=['coc-json', 'coc-css', 'coc-html', 'coc-tsserver', 'coc-rls', 'coc-fsharp']
 
 "Omnisharp
 if has('win32')
@@ -61,14 +70,11 @@ if has('win32')
     let g:OmniSharp_highlight_types=3
     let g:OmniSharp_timeout=10
     let g:syntastic_cs_checkers = ['code_checker']
-endif
-
-"Coc Plugins
-let g:coc_global_extensions=['coc-json', 'coc-css', 'coc-html', 'coc-tsserver', 'coc-rls', 'coc-fsharp']
-
-if has('win32')
     let g:coc_global_extensions = coc_global_extensions + ['coc-omnisharp']
 endif
+
+"Echodoc
+let g:echodoc#enable_at_startup=1
 
 "Supertab
 "Change the completion type so that it starts at the top
@@ -77,7 +83,7 @@ let g:SuperTabDefaultCompletionType='<C-X><C-O>'
 "Ctrl-P
 let g:ctrlp_custom_ignore={
             \ 'dir': '\v[\/](node_modules|target|dist|bin|obj|Library)',
-            \ 'file': '\v\.(exe|so|dll|lock|log|meta|cache)$',
+            \ 'file': '\v\.(exe|so|dll|lock|log|meta|cache|unity)$',
             \}
 
 "Floaterm
