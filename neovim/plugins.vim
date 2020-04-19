@@ -43,9 +43,7 @@ else
     Plug 'fsharp/vim-fsharp', { 'for': 'fsharp', 'do': 'make' }
 endif
 
-if has('win32')
-    Plug 'OmniSharp/omnisharp-vim', { 'for': 'cs' }
-endif
+Plug 'OmniSharp/omnisharp-vim', { 'for': 'cs' }
 
 if executable('npm')
     Plug 'prettier/vim-prettier', { 'do': 'npm install' }
@@ -60,30 +58,40 @@ Plug 'preservim/nerdtree'
 call plug#end()
 
 "Coc Plugins
-let g:coc_global_extensions=['coc-json', 'coc-css', 'coc-html', 'coc-tsserver', 'coc-rls', 'coc-fsharp']
+let g:coc_global_extensions=['coc-json', 'coc-css', 'coc-html', 'coc-tsserver', 'coc-rls', 'coc-fsharp', 'coc-omnisharp']
 
 "Omnisharp
-if has('win32')
-    "let g:OmniSharp_server_stdio=1
-    let g:OmniSharp_server_type='roslyn'
-    let g:OmniSharp_selector_ui='ctrlp'
-    let g:OmniSharp_highlight_types=3
-    let g:OmniSharp_timeout=10
-    let g:syntastic_cs_checkers = ['code_checker']
-    let g:coc_global_extensions = coc_global_extensions + ['coc-omnisharp']
+"If not on Windows it's possible to use the much fast stdio channel
+"Also use the installed mono on Macs - it may be required to set
+"FrameworkPathOverride environment variable to something like
+"/usr/local/lib/mono/4.7.1-api in case of a framework mismatch
+if !has('win32')
+    let g:OmniSharp_server_stdio=1
+    if has('mac')
+        let g:OmniSharp_server_use_mono=1
+    endif
 endif
+let g:OmniSharp_server_type='roslyn'
+let g:OmniSharp_selector_ui='ctrlp'
+let g:OmniSharp_highlight_types=3
+let g:OmniSharp_timeout=10
+let g:syntastic_cs_checkers = ['code_checker']
+
 
 "Echodoc
 let g:echodoc#enable_at_startup=1
 
 "Supertab
 "Change the completion type so that it starts at the top
-let g:SuperTabDefaultCompletionType='<C-X><C-O>'
+let g:SuperTabDefaultCompletionType='context'
+let g:SuperTabContextDefaultCompletionType="<c-x><c-o>"
+let g:SuperTabDefaultCompletionTypeDiscovery=["&omnifunc:<c-x><c-o>","&completefunc:<c-x><c-n>"]
+let g:SuperTabClosePreviewOnPopupClose=1
 
 "Ctrl-P
 let g:ctrlp_custom_ignore={
-            \ 'dir': '\v[\/](node_modules|target|dist|bin|obj|Library)',
-            \ 'file': '\v\.(exe|so|dll|lock|log|meta|cache|unity)$',
+            \ 'dir': '\v[\/](node_modules|target|dist|bin|obj|Library|Temp)',
+            \ 'file': '\v\.(exe|so|dll|lock|log|meta|cache|unity|asset)$',
             \}
 
 "Floaterm
