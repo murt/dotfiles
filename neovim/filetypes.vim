@@ -4,6 +4,7 @@
 "PRETTIER-ABLE
 augroup prettier
     autocmd FileType json,jsonc,javascript,javascript.jsx,typescript,typescriptreact,yaml,css,less,sass,scss,html nnoremap FF :Prettier<CR>
+    autocmd FileType json,jsonc,javascript,javascript.jsx,typescript,typescriptreact,yaml,css,less,sass,scss,html set cc=100
 augroup end
 
 "JSON
@@ -14,6 +15,7 @@ augroup json
     autocmd FileType json syntax match Comment +\/\/.\+$+
     "Filetypes that are json but don't have the extension
     autocmd BufNewFile,BufRead .babelrc setlocal ft=json
+    autocmd BufNewFile,BufRead .eslintrc setlocal ft=json
     autocmd BufNewFile,BufRead .prettierrc setlocal ft=json
 augroup end
 
@@ -39,6 +41,11 @@ augroup end
 
 "TYPESCRIPT
 augroup typescript
+    if executable('yarn')
+        autocmd FileType typescript,typescriptreact nnoremap <leader>b :FloatermNew yarn build; read; exit<CR>
+        autocmd FileType typescript,typescriptreact nnoremap <leader>r :FloatermNew yarn run; read; exit<CR>
+        autocmd FileType typescript,typescriptreact nnoremap <leader><leader>t :FloatermNew yarn test; read; exit<CR>
+    endif
 augroup end
 
 "C#

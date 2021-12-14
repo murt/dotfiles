@@ -7,17 +7,25 @@ endif
 "Load plugins
 call plug#begin(plugin_path)
 
-Plug 'tpope/vim-fugitive'
+Plug 'christianchiarulli/nvcode-color-schemes.vim'
 
-Plug 'morhetz/gruvbox'
+Plug 'nvim-treesitter/nvim-treesitter'
+
+Plug 'tpope/vim-fugitive'
 
 Plug 'itchyny/lightline.vim'
 
 Plug 'ctrlpvim/ctrlp.vim'
 
-Plug 'easymotion/vim-easymotion'
+Plug 'guns/vim-sexp'
 
-Plug 'zhaocai/GoldenView.Vim'
+Plug 'tpope/vim-sexp-mappings-for-regular-people'
+
+Plug 'tpope/vim-repeat'
+
+Plug 'tpope/vim-surround'
+
+Plug 'easymotion/vim-easymotion'
 
 Plug 'ervandew/supertab'
 
@@ -35,6 +43,14 @@ Plug 'voldikss/vim-floaterm'
 
 Plug 'vim-syntastic/syntastic'
 
+if has('mac')
+    Plug 'keith/swift.vim'
+endif
+
+Plug 'junegunn/goyo.vim'
+
+Plug 'junegunn/limelight.vim'
+
 Plug 'Shougo/echodoc.vim'
 
 if has('win32')
@@ -51,14 +67,18 @@ endif
 
 Plug 'HerringtonDarkholme/yats.vim'
 
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+
 Plug 'mhinz/vim-startify'
 
 Plug 'preservim/nerdtree'
 
+Plug 'spolu/dwm.vim'
+
 call plug#end()
 
 "Coc Plugins
-let g:coc_global_extensions=['coc-json', 'coc-css', 'coc-html', 'coc-tsserver', 'coc-rls', 'coc-fsharp', 'coc-omnisharp']
+let g:coc_global_extensions=['coc-json', 'coc-css', 'coc-html', 'coc-tsserver', 'coc-rust-analyzer', 'coc-fsharp', 'coc-omnisharp']
 
 "Omnisharp
 "If not on Windows it's possible to use the much fast stdio channel
@@ -70,6 +90,8 @@ if !has('win32')
     if has('mac')
         let g:OmniSharp_server_use_mono=1
     endif
+else
+    let g:OmniSharp_server_stdio=0
 endif
 let g:OmniSharp_server_type='roslyn'
 let g:OmniSharp_selector_ui='ctrlp'
@@ -98,4 +120,17 @@ let g:ctrlp_custom_ignore={
 let g:floaterm_width=0.75
 let g:floaterm_height=0.75
 let g:floaterm_position='center'
-let g:floaterm_borderchars=['', '', '', '', '', '', '', '']
+"let g:floaterm_borderchars=['', '', '', '', '', '', '', '']
+
+"Goyo / Limelight
+function! s:goyo_enter()
+endfunction
+
+function! s:goyo_exit()
+endfunction
+
+"Swift
+if has('mac')
+    let g:syntastic_swift_checkers = ['swiftpm', 'swiftlint']
+endif
+
