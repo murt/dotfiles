@@ -1,5 +1,9 @@
+# XDG Spec
 set -gx XDG_CONFIG_HOME $HOME/.config
 set -gx XDG_DATA_HOME $HOME/.local/share
+
+# Environment variables
+set -gx DOTNET_CLI_TELEMETRY_OPTOUT 1
 
 # Vi Mode (this breaks keybindings for things like !!)
 fish_vi_key_bindings
@@ -12,5 +16,5 @@ if not functions -q fisher
 end
 
 # Prompt
-set -g pure_symbol_prompt "λ"
-set -g pure_symbol_reverse_prompt "𝑉"
+set -gx STARSHIP_CONFIG $XDG_CONFIG_HOME/fish/starship.toml
+starship init fish | source
