@@ -1,3 +1,5 @@
+set nocompatible
+
 "Force the shell to be sh if it is launched from fish
 if &shell =~# 'fish$'
     set shell=sh

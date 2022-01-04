@@ -3,4 +3,5 @@
             nvim aniseed.nvim
             : utils
             : editor
-            : keys}})
+            : keys
+            : theme}})

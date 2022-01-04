@@ -1,5 +1,7 @@
 (module keys
-  {require {core aniseed.core nvim aniseed.nvim}})
+  {require {
+            core aniseed.core
+            nvim aniseed.nvim}})
 
 ;;Maps a key in a mode - disallows remapping and is by default silent.
 (defn- kymp [mode from to ?opts]
@@ -8,8 +10,8 @@
 ;;Leader
 (set nvim.g.mapleader ",")
 
-;;Backspace behaves normally
-(set nvim.g.backspace 2)
+;;Backspace best behaviour
+(set nvim.o.backspace "indent,eol,start")
 
 ;;Disable ex and macros mode
 (kymp :n "Q" "<nop>")
