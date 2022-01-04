@@ -13,7 +13,7 @@ endif
 call plug#begin(plugin_path)
 
 "Enable Fennel Config
-Plug 'Olical/aniseed', {'branch': 'develop'}
+Plug 'Olical/aniseed'
 
 "Language Server
 Plug 'neovim/nvim-lspconfig'
@@ -27,6 +27,9 @@ Plug 'hrsh7th/nvim-cmp'
 
 "Status
 Plug 'itchyny/lightline.vim'
+
+"Motion
+Plug 'easymotion/vim-easymotion'
 
 call plug#end()
 
