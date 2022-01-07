@@ -12,3 +12,9 @@
 
 ;;Theme Colours
 (nvim.ex.colorscheme "nord")
+
+;;Lightline
+(set nvim.g.lightline {
+                       :colorscheme "nord"
+                       :component_function { :gitbranch "FugitiveHead" }
+                       :active { :left [ [ "mode" "paste" ] [ "gitbranch" "readonly" "filename" "modified" ] ] } })

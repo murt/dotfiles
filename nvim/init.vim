@@ -42,6 +42,7 @@ Plug 'easymotion/vim-easymotion'
 "Languages
 
 "Git
+Plug 'tpope/vim-fugitive'
 
 call plug#end()
 
