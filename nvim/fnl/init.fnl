@@ -1,7 +1,9 @@
 (module init
   {require {core aniseed.core
             nvim aniseed.nvim
-            : utils
-            : editor
-            : keys
-            : theme}})
+            }})
+
+(require :utils)
+(require :editor)
+(require :keys)
+(require :theme)

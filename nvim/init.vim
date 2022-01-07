@@ -17,8 +17,14 @@ call plug#begin(plugin_path)
 "Enable Fennel Config
 Plug 'Olical/aniseed'
 
+"Treesitter
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
 "Language Server
 Plug 'neovim/nvim-lspconfig'
+
+"Colourscheme
+Plug 'shaunsingh/nord.nvim'
 
 "Completion
 Plug 'hrsh7th/cmp-nvim-lsp'
@@ -33,7 +39,10 @@ Plug 'itchyny/lightline.vim'
 "Motion
 Plug 'easymotion/vim-easymotion'
 
+"Languages
+
+"Git
+
 call plug#end()
 
-"lua require('aniseed.env').init()
 let g:aniseed#env = v:true

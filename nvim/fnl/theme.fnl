@@ -9,3 +9,6 @@
 
 ;;Allow bold fonts
 (set nvim.g.enable_bold_font 1)
+
+;;Theme Colours
+(nvim.ex.colorscheme "nord")
