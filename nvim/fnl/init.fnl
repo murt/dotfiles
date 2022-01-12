@@ -8,3 +8,4 @@
 (require :keys)
 (require :theme)
 (require :filetypes)
+(require :completion)
