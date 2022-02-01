@@ -3,7 +3,8 @@
             nvim aniseed.nvim
             treesitter nvim-treesitter.configs
             : lspconfig
-            }})
+            }
+   require-macros [macros]})
 
 ;;Setup treesitter
 (treesitter.setup {
@@ -16,3 +17,4 @@
 ;;Rust
 (lspconfig.rust_analyzer.setup {})
 
+;;(augroup! rust)

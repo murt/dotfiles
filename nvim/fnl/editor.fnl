@@ -1,5 +1,8 @@
 (module editor
-  {require {nvim aniseed.nvim}})
+  {require {
+            nvim aniseed.nvim
+            : fidget
+            }})
 
 (set nvim.o.hidden true)
 
@@ -29,3 +32,6 @@
 ;;No Backup / Swapfile
 (set nvim.g.nobackup true)
 (set nvim.g.noswapfile true)
+
+;;LSP Progress in status bar
+(fidget.setup {})

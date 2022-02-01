@@ -22,6 +22,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 "Language Server
 Plug 'neovim/nvim-lspconfig'
+Plug 'j-hui/fidget.nvim'
 
 "Colourscheme
 Plug 'shaunsingh/nord.nvim'
