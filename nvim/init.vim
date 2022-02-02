@@ -48,6 +48,12 @@ Plug 'easymotion/vim-easymotion'
 "Git
 Plug 'tpope/vim-fugitive'
 
+"Finder
+Plug 'ctrlpvim/ctrlp.vim'
+
+"Layout
+Plug 'spolu/dwm.vim'
+
 call plug#end()
 
 let g:aniseed#env = v:true
