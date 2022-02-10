@@ -27,6 +27,10 @@ Plug 'j-hui/fidget.nvim'
 "Colourscheme
 Plug 'shaunsingh/nord.nvim'
 
+"Icons
+Plug 'ryanoasis/vim-devicons'
+Plug 'kyazdani42/nvim-web-devicons'
+
 "Completion
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
@@ -47,6 +51,9 @@ Plug 'easymotion/vim-easymotion'
 
 "Git
 Plug 'tpope/vim-fugitive'
+
+"Tree
+Plug 'kyazdani42/nvim-tree.lua'
 
 "Finder
 Plug 'ctrlpvim/ctrlp.vim'

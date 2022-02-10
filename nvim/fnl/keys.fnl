@@ -44,3 +44,6 @@
 
 ;;Faster Clearing of Search Highlights
 (kymp :n "<leader>/" ":nohlsearch<CR>")
+
+;;Tree
+(kymp :n "<leader>e" ":NvimTreeToggle<CR>")

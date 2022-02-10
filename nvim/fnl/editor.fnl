@@ -1,6 +1,7 @@
 (module editor
   {require {
             nvim aniseed.nvim
+            tree nvim-tree
             : fidget
             }})
 
@@ -32,6 +33,9 @@
 ;;No Backup / Swapfile
 (set nvim.g.nobackup true)
 (set nvim.g.noswapfile true)
+
+;;Tree
+(tree.setup {})
 
 ;;LSP Progress in status bar
 (fidget.setup {})

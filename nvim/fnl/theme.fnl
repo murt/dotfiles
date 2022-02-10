@@ -1,5 +1,5 @@
 (module theme
-  {require {nvim aniseed.nvim}})
+  {require {nvim aniseed.nvim : nord}})
 
 ;;Always show status bar
 (set nvim.o.laststatus 2)
@@ -11,7 +11,8 @@
 (set nvim.g.enable_bold_font 1)
 
 ;;Theme Colours
-(nvim.ex.colorscheme "nord")
+(set nvim.g.nord_italic false) 
+(nord.set)
 
 ;;Lightline
 (set nvim.g.lightline {

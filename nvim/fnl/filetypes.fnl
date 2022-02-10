@@ -8,7 +8,7 @@
 
 ;;Setup treesitter
 (treesitter.setup {
-                   :ensure_installed ["fennel" "vim" "c" "javascript" "rust" "typescript"]
+                   :ensure_installed ["fennel" "vim" "c" "javascript" "ruby" "rust" "typescript"]
                    :highlight { :enable true }
                    :indent { :enable true }
                    :incremental_search { :enable true }
