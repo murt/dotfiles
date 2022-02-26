@@ -47,3 +47,6 @@
 
 ;;Tree
 (kymp :n "<leader>e" ":NvimTreeToggle<CR>")
+
+;;Finder
+(kymp :n "<C-P>" ":Telescope git_files<CR>")

@@ -56,7 +56,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'kyazdani42/nvim-tree.lua'
 
 "Finder
-Plug 'ctrlpvim/ctrlp.vim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 
 "Layout
 Plug 'spolu/dwm.vim'

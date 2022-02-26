@@ -3,6 +3,7 @@
             nvim aniseed.nvim
             tree nvim-tree
             : fidget
+            : telescope
             }})
 
 (set nvim.o.hidden true)
@@ -40,9 +41,5 @@
 ;;LSP Progress in status bar
 (fidget.setup {})
 
-;;Custom Ctrl-p ignores
-(set nvim.g.ctrlp_custom_ignore {
-                                 :dir "\\v[\\/](node_modules|target|dist|bin|obj|Library|Temp)"
-                                 :file "\\v\\.(exe|so|dll|lock|log|meta|cache|unity|asset)$"
-                                 }
-     )
+;;Telescope Finder
+(telescope.setup {})
