@@ -18,3 +18,6 @@
 (lspconfig.rust_analyzer.setup {})
 
 ;;(augroup! rust)
+
+;;Ruby
+(lspconfig.solargraph.setup {})
