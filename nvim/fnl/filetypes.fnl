@@ -15,9 +15,11 @@
                    })
 
 ;;Rust
-(lspconfig.rust_analyzer.setup {})
+(if (executable! "rust-analyzer")
+  (lspconfig.rust_analyzer.setup {}))
 
 ;;(augroup! rust)
 
 ;;Ruby
-(lspconfig.solargraph.setup {})
+(if (executable! "solargraph")
+  (lspconfig.solargraph.setup {}))
