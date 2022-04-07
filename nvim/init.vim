@@ -66,3 +66,4 @@ call plug#end()
 
 "Compile fennel into lua automatically
 let g:aniseed#env = v:true
+
