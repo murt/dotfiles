@@ -25,7 +25,7 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'j-hui/fidget.nvim'
 
 "Colourscheme
-Plug 'shaunsingh/nord.nvim'
+Plug 'folke/tokyonight.nvim'
 
 "Icons
 Plug 'ryanoasis/vim-devicons'

@@ -14,7 +14,6 @@
 (set nvim.o.title true)
 
 (set nvim.o.autoread true)
-(set nvim.o.cursorline true)
 
 ;;Line Numbers
 (set nvim.o.number true)
