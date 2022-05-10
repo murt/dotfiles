@@ -24,5 +24,9 @@
 (if (executable! "solargraph")
   (lspconfig.solargraph.setup {}))
 
+;;Typescript
+(if (executable! "typescript-language-server")
+  (lspconfig.tsserver.setup {}))
+
 ;;Disable the *stupid* <C-c> SQL completion
 (set nvim.g.omni_sql_default_compl_type "syntax")
