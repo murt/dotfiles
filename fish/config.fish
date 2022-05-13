@@ -52,12 +52,24 @@ if not functions -q fisher
     fish -c fisher
 end
 
-# ASDF
-source $HOME/.asdf/asdf.fish
+# ASDF - support for both normal install and homebrew
+if test -e {$HOME}/.asdf/asdf.fish
+    source $HOME/.asdf/asdf.fish
+end
+if type -q brew && test -e (brew --prefix asdf)/asdf.fish
+    source (brew --prefix asdf)/asdf.fish
+end
 
 # Rustup
 set -Ua fish_user_paths $HOME/.cargo/bin
 
+# Additional paths
+set -g fish_user_paths "/usr/local/sbin" $fish_user_paths
+
+# iTerm 2 (if applicable)
+test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
+
 # Prompt
 set -gx STARSHIP_CONFIG $XDG_CONFIG_HOME/fish/starship.toml
 starship init fish | source
+
