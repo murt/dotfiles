@@ -40,7 +40,8 @@
 (kymp :n "k" "gk")
 
 ;;Format
-(kymp :n "FF" "gg=G``")
+;;(kymp :n "FF" "gg=G``")
+(kymp :n "FF" "<cmd>lua vim.lsp.buf.formatting()<CR>")
 
 ;;Faster Clearing of Search Highlights
 (kymp :n "<leader>/" ":nohlsearch<CR>")
