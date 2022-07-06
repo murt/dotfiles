@@ -60,11 +60,14 @@ if type -q brew && test -e (brew --prefix asdf)/asdf.fish
     source (brew --prefix asdf)/asdf.fish
 end
 
-# Rustup
-set -Ua fish_user_paths $HOME/.cargo/bin
+# Additional system paths
+fish_add_path -a /usr/local/sbin
 
-# Additional paths
-set -g fish_user_paths "/usr/local/sbin" $fish_user_paths
+# Rustup
+fish_add_path -a $HOME/.cargo/bin
+
+# Vendor binaries
+fish_add_path -a $HOME/vendor/bin
 
 # iTerm 2 (if applicable)
 test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
