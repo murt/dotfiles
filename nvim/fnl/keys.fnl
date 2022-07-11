@@ -43,6 +43,9 @@
 ;;(kymp :n "FF" "gg=G``")
 (kymp :n "FF" "<cmd>lua vim.lsp.buf.formatting()<CR>")
 
+;;LSP rename symbol
+(kymp :n "<leader>r" "<cmd>lua vim.lsp.buf.rename()<CR>")
+
 ;;Faster Clearing of Search Highlights
 (kymp :n "<leader>/" ":nohlsearch<CR>")
 
