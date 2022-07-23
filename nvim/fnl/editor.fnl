@@ -1,14 +1,12 @@
-(module editor
-  {require {
-            nvim aniseed.nvim
-            tree nvim-tree
-            : fidget
-            : telescope
-            }})
+(module editor {require {nvim aniseed.nvim
+                         tree nvim-tree
+                         : fidget
+                         : telescope
+                         : lsp_lines}})
 
 (set nvim.o.hidden true)
 
-(set nvim.o.encoding "utf-8")
+(set nvim.o.encoding :utf-8)
 
 ;;Title
 (set nvim.o.title true)
@@ -39,6 +37,10 @@
 
 ;;LSP Progress in status bar
 (fidget.setup {})
+
+;;LSP inline
+(lsp_lines.setup {})
+(lua "vim.diagnostic.config({virtual_text = false, virtual_lines = true})")
 
 ;;Telescope Finder
 (telescope.setup {})

@@ -25,6 +25,7 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'j-hui/fidget.nvim'
 Plug 'jose-elias-alvarez/null-ls.nvim'
 Plug 'jose-elias-alvarez/nvim-lsp-ts-utils'
+Plug 'https://git.sr.ht/~whynothugo/lsp_lines.nvim'
 
 "Colourscheme
 Plug 'folke/tokyonight.nvim'
