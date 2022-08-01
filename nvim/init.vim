@@ -21,7 +21,10 @@ Plug 'Olical/aniseed'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 "Language Server
+Plug 'williamboman/mason.nvim'
+Plug 'williamboman/mason-lspconfig.nvim'
 Plug 'neovim/nvim-lspconfig'
+Plug 'WhoIsSethDaniel/mason-tool-installer.nvim'
 Plug 'j-hui/fidget.nvim'
 Plug 'jose-elias-alvarez/null-ls.nvim'
 Plug 'jose-elias-alvarez/nvim-lsp-ts-utils'

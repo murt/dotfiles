@@ -1,5 +1,8 @@
 (module editor {require {nvim aniseed.nvim
                          tree nvim-tree
+                         mason mason
+                         masonlsp mason-lspconfig
+                         masontool mason-tool-installer
                          : fidget
                          : telescope
                          : lsp_lines}})
@@ -34,6 +37,23 @@
 
 ;;Tree
 (tree.setup {})
+
+;;Language server installs
+(local ensure_installed [
+                         ;; Language Servers
+                         "jedi-language-server"
+                         "rust-analyzer"
+                         "typescript-language-server"
+                         ;; Linters
+                         "flake8"
+                         ;; Formatters
+                         "black"
+                         "prettier"
+                         ])
+(mason.setup {})
+(masonlsp.setup {:automatic_installation true
+                 :ensure_installed ensure_installed})
+(masontool.setup { :ensure_installed ensure_installed :auto_update true })
 
 ;;LSP Progress in status bar
 (fidget.setup {})

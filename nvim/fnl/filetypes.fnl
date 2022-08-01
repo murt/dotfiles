@@ -22,20 +22,6 @@
     :indent {:enable true}
     :incremental_search {:enable true}})
 
-;;Rust
-(if (executable! :rust-analyzer)
-    (lspconfig.rust_analyzer.setup {}))
-
-;;(augroup! rust)
-
-;;Ruby
-(if (executable! :solargraph)
-    (lspconfig.solargraph.setup {}))
-
-;;Typescript
-(if (executable! :typescript-language-server)
-    (lspconfig.tsserver.setup {}))
-
 ;;Python
 ;;If there is a globally installed python from asdf set it as the provider
 ;;executable check will not work as it's unreliable on symlinks
@@ -51,7 +37,10 @@
 
 ;;Enable jedi-language-server and attach the black formatter
 (if (executable! :jedi-language-server)
-    (lspconfig.jedi_language_server.setup {:on_attach black_attach}))
+    (lspconfig.jedi_language_server.setup {
+                                           :filetypes [ "python" ]
+                                           :on_attach black_attach
+                                           }))
 
 ;;Null-ls
 (null_ls.setup {:sources [null_ls.builtins.formatting.prettier
