@@ -26,6 +26,7 @@
 (set nvim.o.copyindent true)
 (set nvim.o.softtabstop 4)
 (set nvim.o.shiftwidth 4)
+(set nvim.o.tabstop 4)
 
 ;;Incremental Highlight Search
 (set nvim.o.incsearch true)
@@ -44,6 +45,7 @@
                          "jedi-language-server"
                          "rust-analyzer"
                          "typescript-language-server"
+                         "gopls"
                          ;; Linters
                          "flake8"
                          ;; Formatters

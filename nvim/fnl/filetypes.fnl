@@ -37,10 +37,10 @@
 
 ;;Enable jedi-language-server and attach the black formatter
 (if (executable! :jedi-language-server)
-    (lspconfig.jedi_language_server.setup {
-                                           :filetypes [ "python" ]
-                                           :on_attach black_attach
-                                           }))
+    (lspconfig.jedi_language_server.setup {:on_attach black_attach}))
+
+(if (executable! :gopls)
+    (lspconfig.gopls.setup {:settings {:gopls {:gofumpt true}}}))
 
 ;;Null-ls
 (null_ls.setup {:sources [null_ls.builtins.formatting.prettier
