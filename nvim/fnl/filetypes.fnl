@@ -42,6 +42,9 @@
 (if (executable! :gopls)
     (lspconfig.gopls.setup {:settings {:gopls {:gofumpt true}}}))
 
+(if (executable! :rust-analyzer)
+    (lspconfig.rust_analyzer.setup {}))
+
 ;;Null-ls
 (null_ls.setup {:sources [null_ls.builtins.formatting.prettier
                           null_ls.builtins.formatting.black
