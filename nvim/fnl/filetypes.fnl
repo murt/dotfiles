@@ -52,3 +52,4 @@
 
 ;;Disable the *stupid* <C-c> SQL completion
 (set nvim.g.omni_sql_default_compl_type :syntax)
+

@@ -4,6 +4,7 @@
                          masonlsp mason-lspconfig
                          masontool mason-tool-installer
                          : fidget
+                         : focus
                          : telescope
                          : lsp_lines}})
 
@@ -35,6 +36,12 @@
 ;;No Backup / Swapfile
 (set nvim.g.nobackup true)
 (set nvim.g.noswapfile true)
+
+;;Mouse
+(set nvim.o.mouse :a)
+
+;;Focus splits
+(focus.setup {:bufnew true :cursorline false})
 
 ;;Tree
 (tree.setup {})

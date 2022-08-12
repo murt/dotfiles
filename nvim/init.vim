@@ -33,6 +33,9 @@ Plug 'https://git.sr.ht/~whynothugo/lsp_lines.nvim'
 "Colourscheme
 Plug 'folke/tokyonight.nvim'
 
+"Status
+Plug 'nvim-lualine/lualine.nvim'
+
 "Icons
 Plug 'ryanoasis/vim-devicons'
 Plug 'kyazdani42/nvim-web-devicons'
@@ -49,9 +52,6 @@ Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/vim-vsnip'
 
-"Status
-Plug 'itchyny/lightline.vim'
-
 "Motion
 Plug 'easymotion/vim-easymotion'
 
@@ -66,7 +66,7 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 
 "Layout
-Plug 'spolu/dwm.vim'
+Plug 'beauwilliams/focus.nvim'
 
 call plug#end()
 
