@@ -14,6 +14,11 @@ endif
 "Load plugins
 call plug#begin(plugin_path)
 
+"Third-party
+Plug 'nvim-lua/plenary.nvim'
+Plug 'ryanoasis/vim-devicons'
+Plug 'kyazdani42/nvim-web-devicons'
+
 "Enable Fennel Config
 Plug 'Olical/aniseed'
 
@@ -33,12 +38,8 @@ Plug 'https://git.sr.ht/~whynothugo/lsp_lines.nvim'
 "Colourscheme
 Plug 'folke/tokyonight.nvim'
 
-"Status
+"Statusline
 Plug 'nvim-lualine/lualine.nvim'
-
-"Icons
-Plug 'ryanoasis/vim-devicons'
-Plug 'kyazdani42/nvim-web-devicons'
 
 "Completion
 Plug 'hrsh7th/cmp-nvim-lsp'
@@ -58,15 +59,10 @@ Plug 'easymotion/vim-easymotion'
 "Git
 Plug 'tpope/vim-fugitive'
 
-"Tree
-Plug 'kyazdani42/nvim-tree.lua'
-
-"Finder
-Plug 'nvim-lua/plenary.nvim'
+"UI
+Plug 'kdheepak/tabline.nvim'
+Plug 'sidebar-nvim/sidebar.nvim'
 Plug 'nvim-telescope/telescope.nvim'
-
-"Layout
-Plug 'beauwilliams/focus.nvim'
 
 call plug#end()
 

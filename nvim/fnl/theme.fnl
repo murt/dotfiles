@@ -1,4 +1,4 @@
-(module theme {require {nvim aniseed.nvim : lualine}})
+(module theme {require {nvim aniseed.nvim : lualine : tabline}})
 
 ;;Always show status bar
 (set nvim.o.laststatus 2)
@@ -14,8 +14,13 @@
 (set nvim.colorscheme :tokyonight)
 
 ;;Status
-(lualine.setup {:options {:theme :tokyonight}})
+(lualine.setup {:options {:theme :tokyonight}
+                :tabline {:lualine_a {}
+                          :lualine_b {}
+                          ;;:lualine_c [(. (require :tabline) :tabline_buffers)]
+                          :lualine_x [(. (require :tabline) :tabline_tabs)]
+                          :lualine_y {}
+                          :lualine_z {}}})
 
 ;;No cursor line
 (nvim.ex.set :nocursorline)
-

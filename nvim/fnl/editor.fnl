@@ -1,10 +1,10 @@
 (module editor {require {nvim aniseed.nvim
-                         tree nvim-tree
                          mason mason
                          masonlsp mason-lspconfig
                          masontool mason-tool-installer
+                         sidebar sidebar-nvim
+                         : tabline
                          : fidget
-                         : focus
                          : telescope
                          : lsp_lines}})
 
@@ -12,15 +12,15 @@
 
 (set nvim.o.encoding :utf-8)
 
-;;Title
+;; Title
 (set nvim.o.title true)
 
 (set nvim.o.autoread true)
 
-;;Line Numbers
+;; Line Numbers
 (set nvim.o.number true)
 
-;;Spaces
+;; Spaces
 (set nvim.o.expandtab true)
 (set nvim.o.smarttab true)
 (set nvim.o.autoindent true)
@@ -29,47 +29,46 @@
 (set nvim.o.shiftwidth 4)
 (set nvim.o.tabstop 4)
 
-;;Incremental Highlight Search
+;; Incremental Highlight Search
 (set nvim.o.incsearch true)
 (set nvim.o.hlsearch true)
 
-;;No Backup / Swapfile
+;; No Backup / Swapfile
 (set nvim.g.nobackup true)
 (set nvim.g.noswapfile true)
 
-;;Mouse
+;; Mouse
 (set nvim.o.mouse :a)
 
-;;Focus splits
-(focus.setup {:bufnew true :cursorline false})
+;; Tabs
+ (tabline.setup { :options { :show_tabs_only true } })
 
-;;Tree
-(tree.setup {})
+;; Sidebar
+(sidebar.setup { :open false :hide_statusline true :sections [ :files :diagnostics :symbols :git ] })
 
-;;Language server installs
-(local ensure_installed [
-                         ;; Language Servers
-                         "jedi-language-server"
-                         "rust-analyzer"
-                         "typescript-language-server"
-                         "gopls"
+;; Language server installs
+(local ensure_installed [;; Language Servers
+                         :jedi-language-server
+                         :rust-analyzer
+                         :typescript-language-server
+                         :gopls
                          ;; Linters
-                         "flake8"
+                         :flake8
                          ;; Formatters
-                         "black"
-                         "prettier"
-                         ])
-(mason.setup {})
-(masonlsp.setup {:automatic_installation true
-                 :ensure_installed ensure_installed})
-(masontool.setup { :ensure_installed ensure_installed :auto_update true })
+                         :black
+                         :prettier])
 
-;;LSP Progress in status bar
+(mason.setup {})
+(masonlsp.setup {:automatic_installation true : ensure_installed})
+
+(masontool.setup {: ensure_installed :auto_update true})
+
+;; LSP Progress in status bar
 (fidget.setup {})
 
-;;LSP inline
+;; LSP inline
 (lsp_lines.setup {})
 (lua "vim.diagnostic.config({virtual_text = false, virtual_lines = true})")
 
-;;Telescope Finder
+;; Telescope Finder
 (telescope.setup {})

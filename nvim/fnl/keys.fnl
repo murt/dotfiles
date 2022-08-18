@@ -28,20 +28,18 @@
 (kymp :i :<C-Y> :<C-O><C-R>)
 
 ;;Tabs
-(kymp :n :<leader>t ":tabnew<CR>")
+(kymp :n :<leader>t ":TablineTabNew<CR>")
 (kymp :n :<leader>w ":tabclose<CR>")
 (kymp :n "<leader>[" ":tabprev<CR>")
 (kymp :n "<leader>]" ":tabnext<CR>")
 
 ;;Splits
-(kymp :n :<C-N> ":FocusSplitNicely<CR>")
-(kymp :n :<C-space> ":FocusToggle<CR>")
-;;(kymp :n :<C-H> ":FocusSplitLeft<CR>")
-;;(kymp :n :<C-J> ":FocusSplitDown<CR>")
-;;(kymp :n :<C-K> ":FocusSplitUp<CR>")
-;;(kymp :n :<C-L> ":FocusSplitRight<CR>")
+(kymp :n :<C-N> ":vsplit<CR>")
+(kymp :n :<C-M> ":split<CR>")
+(kymp :n :<C-H> :<C-W><C-H>)
 (kymp :n :<C-J> :<C-W><C-J>)
 (kymp :n :<C-K> :<C-W><C-K>)
+(kymp :n :<C-L> :<C-W><C-L>)
 
 ;;Vertical Navigation Across Wrapped Lines
 (kymp :n :j :gj)
@@ -58,7 +56,7 @@
 (kymp :n :<leader>/ ":nohlsearch<CR>")
 
 ;;Tree
-(kymp :n :<leader>e ":NvimTreeToggle<CR>")
+(kymp :n :<leader>e ":SidebarNvimToggle<CR>")
 
 ;;Finder
 (kymp :n :<C-P> ":Telescope git_files<CR>")
