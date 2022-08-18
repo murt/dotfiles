@@ -14,8 +14,12 @@
 
 ;; Title
 (set nvim.o.title true)
-
 (set nvim.o.autoread true)
+
+;; Splits and extra chars
+(lua "vim.cmd('highlight clear VertSplit')")
+(lua "vim.cmd('highlight clear SignColumn')")
+(lua "vim.cmd('set fcs=eob:\\\\ ')")
 
 ;; Line Numbers
 (set nvim.o.number true)

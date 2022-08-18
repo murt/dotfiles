@@ -14,9 +14,10 @@
 (set nvim.colorscheme :tokyonight)
 
 ;;Status
-(lualine.setup {:options {:theme :tokyonight}
+(lualine.setup {:options {:theme :tokyonight :disabled_filetypes [ :SidebarNvim ] }
                 :tabline {:lualine_a {}
                           :lualine_b {}
+                          :lualine_c {}
                           ;;:lualine_c [(. (require :tabline) :tabline_buffers)]
                           :lualine_x [(. (require :tabline) :tabline_tabs)]
                           :lualine_y {}
