@@ -28,6 +28,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 "Language Server
 Plug 'williamboman/mason.nvim'
 Plug 'williamboman/mason-lspconfig.nvim'
+Plug 'jayp0521/mason-null-ls.nvim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'WhoIsSethDaniel/mason-tool-installer.nvim'
 Plug 'j-hui/fidget.nvim'
