@@ -63,6 +63,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'kdheepak/tabline.nvim'
 Plug 'sidebar-nvim/sidebar.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+Plug 'lewis6991/gitsigns.nvim'
 
 call plug#end()
 

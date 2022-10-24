@@ -1,4 +1,4 @@
-(module keys {require {core aniseed.core nvim aniseed.nvim}})
+(module keys {require {core aniseed.core nvim aniseed.nvim : lsp_lines}})
 
 ;;Maps a key in a mode - disallows remapping and is by default silent.
 (defn- kymp [mode from to ?opts]
@@ -60,3 +60,6 @@
 
 ;;Finder
 (kymp :n :<C-P> ":Telescope git_files<CR>")
+
+;;Diagnostics (inline toggle)
+(kymp :n :<leader>l ":lua require('lsp_lines').toggle()<CR>")

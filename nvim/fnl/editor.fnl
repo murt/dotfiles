@@ -3,6 +3,7 @@
                          masonlsp mason-lspconfig
                          masontool mason-tool-installer
                          sidebar sidebar-nvim
+                         : gitsigns
                          : tabline
                          : fidget
                          : telescope
@@ -49,6 +50,9 @@
 
 ;; Sidebar
 (sidebar.setup { :open false :hide_statusline true :sections [ :files :diagnostics :symbols :git ] })
+
+;; Gutter
+(gitsigns.setup)
 
 ;; Language server installs
 (local ensure_installed [;; Language Servers
