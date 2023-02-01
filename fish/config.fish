@@ -69,6 +69,9 @@ fish_add_path -a $HOME/.cargo/bin
 # Vendor binaries
 fish_add_path -a $HOME/vendor/bin
 
+# Gotham shell
+eval sh {$HOME}/.config/gotham/gotham.sh
+
 # iTerm 2 (if applicable)
 test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
 

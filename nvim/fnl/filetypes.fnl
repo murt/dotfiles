@@ -1,8 +1,8 @@
 (module filetypes {require {nvim aniseed.nvim
                             treesitter nvim-treesitter.configs
-                            : lspconfig
-                            lsputil :lspconfig/util
-                            null_ls null-ls}
+                            null_ls null-ls
+                            rt rust-tools
+                            : lspconfig}
                    require-macros [macros]})
 
 ;;Setup treesitter
@@ -22,34 +22,20 @@
     :indent {:enable true}
     :incremental_search {:enable true}})
 
-;;Python
-;;If there is a globally installed python from asdf set it as the provider
-;;executable check will not work as it's unreliable on symlinks
-(if (exists! :$HOME/.asdf/shims/python)
-    (set nvim.g.python3_host_prog :$HOME/.asdf/shims/python))
+;;Rust
+(rt.setup {:tools {:inlay_hints {:auto false}} :server {}})
 
-;;Enabling black formatter requires disabling pyrights formatter as they will conflict
-
-;; fnlfmt: skip
-(defn- black_attach [client]
-  (set client.resolved_capabilities.document_formatting false)
-  (set client.resolved_capabilities.document_range_formatting false))
-
-;;Enable jedi-language-server and attach the black formatter
-(if (executable! :jedi-language-server)
-    (lspconfig.jedi_language_server.setup {:on_attach black_attach}))
-
-(if (executable! :gopls)
-    (lspconfig.gopls.setup {:settings {:gopls {:gofumpt true}}}))
-
-(if (executable! :rust-analyzer)
-    (lspconfig.rust_analyzer.setup {}))
+;;Python (via pyright)
+(if (executable! :pyright)
+  (lspconfig.pyright.setup {}))
 
 ;;Null-ls
-(null_ls.setup {:sources [null_ls.builtins.formatting.prettier
-                          null_ls.builtins.formatting.black
-                          null_ls.builtins.formatting.fnlfmt]})
+(local sources [
+  (if (executable! :fnlfmt) null_ls.builtins.formatting.fnlfmt)
+  (if (executable! :black) null_ls.builtins.formatting.black)
+])
+
+(null_ls.setup {:sources sources})
 
 ;;Disable the *stupid* <C-c> SQL completion
 (set nvim.g.omni_sql_default_compl_type :syntax)
-

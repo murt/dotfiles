@@ -1,4 +1,4 @@
-(module keys {require {core aniseed.core nvim aniseed.nvim : lsp_lines}})
+(module keys {require {core aniseed.core nvim aniseed.nvim}})
 
 ;;Maps a key in a mode - disallows remapping and is by default silent.
 (defn- kymp [mode from to ?opts]
@@ -34,12 +34,14 @@
 (kymp :n "<leader>]" ":tabnext<CR>")
 
 ;;Splits
-(kymp :n :<C-N> ":vsplit<CR>")
-(kymp :n :<C-M> ":split<CR>")
-(kymp :n :<C-H> :<C-W><C-H>)
-(kymp :n :<C-J> :<C-W><C-J>)
-(kymp :n :<C-K> :<C-W><C-K>)
-(kymp :n :<C-L> :<C-W><C-L>)
+(kymp :n :<C-N> ":lua require('dwm').new()<CR>")
+(kymp :n :<C-J> :<C-w>w)
+(kymp :n :<C-K> :<C-w>W)
+(kymp :n :<C-H> ":lua require('dwm').shrink()<CR>")
+(kymp :n :<C-L> ":lua require('dwm').grow()<CR>")
+(kymp :n :<C-Space> ":lua require('dwm').focus()<CR>")
+(kymp :n :<C-S-J> ":lua require('dwm').rotateRight()<CR>")
+(kymp :n :<C-S-K> ":lua require('dwm').rotateLeft()<CR>")
 
 ;;Vertical Navigation Across Wrapped Lines
 (kymp :n :j :gj)
@@ -47,7 +49,7 @@
 
 ;;Format
 ;;(kymp :n "FF" "gg=G``")
-(kymp :n :FF "<cmd>lua vim.lsp.buf.formatting()<CR>")
+(kymp :n :FF "<cmd>lua vim.lsp.buf.format({ async = true })<CR>")
 
 ;;LSP rename symbol
 (kymp :n :<leader>r "<cmd>lua vim.lsp.buf.rename()<CR>")

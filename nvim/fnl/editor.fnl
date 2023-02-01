@@ -1,13 +1,11 @@
 (module editor {require {nvim aniseed.nvim
-                         mason mason
-                         masonlsp mason-lspconfig
-                         masontool mason-tool-installer
                          sidebar sidebar-nvim
                          : gitsigns
                          : tabline
                          : fidget
                          : telescope
-                         : lsp_lines}})
+                         : lsp_lines
+                         : dwm}})
 
 (set nvim.o.hidden true)
 
@@ -46,30 +44,15 @@
 (set nvim.o.mouse :a)
 
 ;; Tabs
- (tabline.setup { :options { :show_tabs_only true } })
+(tabline.setup {:options {:show_tabs_only true}})
 
 ;; Sidebar
-(sidebar.setup { :open false :hide_statusline true :sections [ :files :diagnostics :symbols :git ] })
+(sidebar.setup {:open false
+                :hide_statusline true
+                :sections [:files :diagnostics :symbols :git]})
 
 ;; Gutter
 (gitsigns.setup)
-
-;; Language server installs
-(local ensure_installed [;; Language Servers
-                         :jedi-language-server
-                         :rust-analyzer
-                         :typescript-language-server
-                         :gopls
-                         ;; Linters
-                         :flake8
-                         ;; Formatters
-                         :black
-                         :prettier])
-
-(mason.setup {})
-(masonlsp.setup {:automatic_installation true : ensure_installed})
-
-(masontool.setup {: ensure_installed :auto_update true})
 
 ;; LSP Progress in status bar
 (fidget.setup {})
@@ -80,3 +63,14 @@
 
 ;; Telescope Finder
 (telescope.setup {})
+
+;; Layout
+(dwm.setup {:key_maps false :master_pane_count 1 :master_pane_width "60%"})
+
+(lua "vim.api.nvim_create_autocmd({ 'BufRead' }, {
+  callback = function()
+    if vim.opt.buftype:get() == 'nofile' then
+      vim.b.dwm_disabled = true
+    end
+  end,
+})")

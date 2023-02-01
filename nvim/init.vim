@@ -17,7 +17,7 @@ call plug#begin(plugin_path)
 "Third-party
 Plug 'nvim-lua/plenary.nvim'
 Plug 'ryanoasis/vim-devicons'
-Plug 'kyazdani42/nvim-web-devicons'
+Plug 'nvim-tree/nvim-web-devicons'
 
 "Enable Fennel Config
 Plug 'Olical/aniseed'
@@ -26,18 +26,17 @@ Plug 'Olical/aniseed'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 "Language Server
-Plug 'williamboman/mason.nvim'
-Plug 'williamboman/mason-lspconfig.nvim'
-Plug 'jayp0521/mason-null-ls.nvim'
 Plug 'neovim/nvim-lspconfig'
-Plug 'WhoIsSethDaniel/mason-tool-installer.nvim'
 Plug 'j-hui/fidget.nvim'
 Plug 'jose-elias-alvarez/null-ls.nvim'
-Plug 'jose-elias-alvarez/nvim-lsp-ts-utils'
 Plug 'https://git.sr.ht/~whynothugo/lsp_lines.nvim'
+Plug 'hrsh7th/cmp-nvim-lsp-signature-help'
 
-"Colourscheme
-Plug 'folke/tokyonight.nvim'
+"Typescript
+Plug 'jose-elias-alvarez/nvim-lsp-ts-utils'
+
+"Rust
+Plug 'simrat39/rust-tools.nvim'
 
 "Statusline
 Plug 'nvim-lualine/lualine.nvim'
@@ -65,6 +64,17 @@ Plug 'kdheepak/tabline.nvim'
 Plug 'sidebar-nvim/sidebar.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'lewis6991/gitsigns.nvim'
+Plug 'delphinus/dwm.nvim'
+
+"Misc
+Plug 'tpope/vim-eunuch'
+
+"Theme
+"Plug 'whatyouhide/vim-gotham'
+"Plug 'RRethy/nvim-base16' 
+Plug 'murt/gotham.nvim'
+Plug 'levouh/tint.nvim'
+
 
 call plug#end()
 

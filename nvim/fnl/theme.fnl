@@ -1,4 +1,4 @@
-(module theme {require {nvim aniseed.nvim : lualine : tabline}})
+(module theme {require {nvim aniseed.nvim : gotham : lualine : tabline : tint}})
 
 ;;Always show status bar
 (set nvim.o.laststatus 2)
@@ -10,11 +10,12 @@
 (set nvim.g.enable_bold_font 1)
 
 ;;Theme Colours
-(set nvim.g.tokyonight_style :night)
-(set nvim.colorscheme :tokyonight)
+;;(set nvim.colorscheme :base16-gotham)
+(gotham.setup {})
+(tint.setup {})
 
 ;;Status
-(lualine.setup {:options {:theme :tokyonight :disabled_filetypes [ :SidebarNvim ] }
+(lualine.setup {:options {:disabled_filetypes [:SidebarNvim]}
                 :tabline {:lualine_a {}
                           :lualine_b {}
                           :lualine_c {}
