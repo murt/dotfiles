@@ -52,12 +52,22 @@ if not functions -q fisher
     fish -c fisher
 end
 
+# Check for and add homebrew
+if test -e /opt/homebrew/bin
+    fish_add_path -a /opt/homebrew/bin
+end
+
 # ASDF - support for both normal install and homebrew
 if test -e {$HOME}/.asdf/asdf.fish
     source $HOME/.asdf/asdf.fish
 end
-if type -q brew && test -e (brew --prefix asdf)/asdf.fish
-    source (brew --prefix asdf)/asdf.fish
+if type -q brew && test -e (brew --prefix asdf)/libexec/sdf.fish
+    source (brew --prefix asdf)/libexec/asdf.fish
+end
+
+# Support for lsd if present
+if type -q lsd
+    alias ls="lsd"
 end
 
 # Additional system paths
@@ -79,3 +89,6 @@ test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shel
 set -gx STARSHIP_CONFIG $XDG_CONFIG_HOME/fish/starship.toml
 starship init fish | source
 
+# tabtab source for packages
+# uninstall by removing these lines
+[ -f {$XDG_CONFIG_HOME}/tabtab/fish/__tabtab.fish ]; and . {$XDG_CONFIG_HOME}/tabtab/fish/__tabtab.fish; or true
