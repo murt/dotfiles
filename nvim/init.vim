@@ -38,6 +38,9 @@ Plug 'jose-elias-alvarez/nvim-lsp-ts-utils'
 "Rust
 Plug 'simrat39/rust-tools.nvim'
 
+"Fish
+Plug 'khaveesh/vim-fish-syntax'
+
 "Statusline
 Plug 'nvim-lualine/lualine.nvim'
 
@@ -70,8 +73,6 @@ Plug 'delphinus/dwm.nvim'
 Plug 'tpope/vim-eunuch'
 
 "Theme
-"Plug 'whatyouhide/vim-gotham'
-"Plug 'RRethy/nvim-base16' 
 Plug 'murt/gotham.nvim'
 Plug 'levouh/tint.nvim'
 

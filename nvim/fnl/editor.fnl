@@ -74,3 +74,8 @@
     end
   end,
 })")
+
+(vim.api.nvim_create_autocmd [:BufRead]
+                             {:callback (fn []
+                                          (if (= (vim.opt.buftype:get) :nofile)
+                                              (set vim.b.dwm_disabled true)))})
