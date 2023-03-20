@@ -2,6 +2,7 @@
                             treesitter nvim-treesitter.configs
                             null_ls null-ls
                             rt rust-tools
+                            ts_rainbow ts-rainbow
                             : lspconfig}
                    require-macros [macros]})
 
@@ -18,6 +19,7 @@
           :rust
           :typescript
           :python]
+    :rainbow { :enable true :query :rainbow-parens :strategy ts_rainbow.strategy.global }
     :highlight {:enable true}
     :indent {:enable true}
     :incremental_search {:enable true}})
@@ -27,15 +29,14 @@
 
 ;;Python (via pyright)
 (if (executable! :pyright)
-  (lspconfig.pyright.setup {}))
+    (lspconfig.pyright.setup {}))
 
 ;;Null-ls
-(local sources [
-  (if (executable! :fnlfmt) null_ls.builtins.formatting.fnlfmt)
-  (if (executable! :black) null_ls.builtins.formatting.black)
-])
+(local sources
+       [(if (executable! :fnlfmt) null_ls.builtins.formatting.fnlfmt)
+        (if (executable! :black) null_ls.builtins.formatting.black)])
 
-(null_ls.setup {:sources sources})
+(null_ls.setup {: sources})
 
 ;;Disable the *stupid* <C-c> SQL completion
 (set nvim.g.omni_sql_default_compl_type :syntax)

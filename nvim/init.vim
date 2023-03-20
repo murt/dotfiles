@@ -24,6 +24,7 @@ Plug 'Olical/aniseed'
 
 "Treesitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'HiPhish/nvim-ts-rainbow2'
 
 "Language Server
 Plug 'neovim/nvim-lspconfig'
