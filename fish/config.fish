@@ -61,7 +61,7 @@ end
 if test -e {$HOME}/.asdf/asdf.fish
     source $HOME/.asdf/asdf.fish
 end
-if type -q brew && test -e (brew --prefix asdf)/libexec/sdf.fish
+if type -q brew && test -e (brew --prefix asdf)/libexec/asdf.fish
     source (brew --prefix asdf)/libexec/asdf.fish
 end
 
