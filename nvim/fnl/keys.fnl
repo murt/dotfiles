@@ -1,4 +1,5 @@
-(module keys {require {core aniseed.core nvim aniseed.nvim}})
+(module keys {require {core aniseed.core nvim aniseed.nvim}
+              require-macros [macros]})
 
 ;;Maps a key in a mode - disallows remapping and is by default silent.
 (defn- kymp [mode from to ?opts]
@@ -28,20 +29,21 @@
 (kymp :i :<C-Y> :<C-O><C-R>)
 
 ;;Tabs
-(kymp :n :<leader>t ":TablineTabNew<CR>")
+;;(kymp :n :<leader>t ":TablineTabNew<CR>")
+(kymp :n :<leader>t ":tabnew<CR>")
 (kymp :n :<leader>w ":tabclose<CR>")
 (kymp :n "<leader>[" ":tabprev<CR>")
 (kymp :n "<leader>]" ":tabnext<CR>")
 
 ;;Splits
-(kymp :n :<C-N> ":lua require('dwm').new()<CR>")
+;;(kymp :n :<C-N> ":lua require('dwm').new()<CR>")
 (kymp :n :<C-J> :<C-w>w)
 (kymp :n :<C-K> :<C-w>W)
-(kymp :n :<C-H> ":lua require('dwm').shrink()<CR>")
-(kymp :n :<C-L> ":lua require('dwm').grow()<CR>")
-(kymp :n :<C-Space> ":lua require('dwm').focus()<CR>")
-(kymp :n :<C-S-J> ":lua require('dwm').rotateRight()<CR>")
-(kymp :n :<C-S-K> ":lua require('dwm').rotateLeft()<CR>")
+;;(kymp :n :<C-H> ":lua require('dwm').shrink()<CR>")
+;;(kymp :n :<C-L> ":lua require('dwm').grow()<CR>")
+;;(kymp :n :<C-Space> ":lua require('dwm').focus()<CR>")
+;;(kymp :n :<C-S-J> ":lua require('dwm').rotateRight()<CR>")
+;;(kymp :n :<C-S-K> ":lua require('dwm').rotateLeft()<CR>")
 
 ;;Vertical Navigation Across Wrapped Lines
 (kymp :n :j :gj)
@@ -58,10 +60,14 @@
 (kymp :n :<leader>/ ":nohlsearch<CR>")
 
 ;;Tree
-(kymp :n :<leader>e ":SidebarNvimToggle<CR>")
+(kymp :n :<leader>e ":NvimTreeToggle<CR>")
 
 ;;Finder
-(kymp :n :<C-P> ":Telescope git_files<CR>")
+(kymp :n :<C-p> ":Telescope git_files<CR>")
+(kymp :n :<C-f> ":Telescope find_files<CR>")
+(if (executable! :rg)
+    (kymp :n :<leader>f ":Telescope live_grep<CR>")
+    (kymp :n :<leader>f ":Telescope grep_string<CR>"))
 
 ;;Diagnostics (inline toggle)
 (kymp :n :<leader>l ":lua require('lsp_lines').toggle()<CR>")
