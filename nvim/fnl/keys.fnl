@@ -23,27 +23,26 @@
 (kymp :i :jk :<esc>)
 
 ;;Undo/Redo
-(kymp :n :<C-Z> :u)
-(kymp :i :<C-Z> :<C-O>u)
-(kymp :n :<C-Y> :<C-R>)
-(kymp :i :<C-Y> :<C-O><C-R>)
+(kymp :n :<C-z> :u)
+(kymp :i :<C-z> :<C-O>u)
+(kymp :n :<C-y> :<C-R>)
+(kymp :i :<C-y> :<C-O><C-R>)
 
 ;;Tabs
-;;(kymp :n :<leader>t ":TablineTabNew<CR>")
 (kymp :n :<leader>t ":tabnew<CR>")
 (kymp :n :<leader>w ":tabclose<CR>")
 (kymp :n "<leader>[" ":tabprev<CR>")
 (kymp :n "<leader>]" ":tabnext<CR>")
 
 ;;Splits
-;;(kymp :n :<C-N> ":lua require('dwm').new()<CR>")
-(kymp :n :<C-J> :<C-w>w)
-(kymp :n :<C-K> :<C-w>W)
-;;(kymp :n :<C-H> ":lua require('dwm').shrink()<CR>")
-;;(kymp :n :<C-L> ":lua require('dwm').grow()<CR>")
-;;(kymp :n :<C-Space> ":lua require('dwm').focus()<CR>")
-;;(kymp :n :<C-S-J> ":lua require('dwm').rotateRight()<CR>")
-;;(kymp :n :<C-S-K> ":lua require('dwm').rotateLeft()<CR>")
+(kymp :n :<C-n> ":lua require('dwm').new()<CR>")
+(kymp :n :<C-j> :<C-w>w)
+(kymp :n :<C-k> :<C-w>W)
+(kymp :n :<C-H> ":lua require('dwm').shrink()<CR>")
+(kymp :n :<C-L> ":lua require('dwm').grow()<CR>")
+(kymp :n :<C-Space> ":lua require('dwm').focus()<CR>")
+(kymp :n :<C-S-J> ":lua require('dwm').rotateRight()<CR>")
+(kymp :n :<C-S-K> ":lua require('dwm').rotateLeft()<CR>")
 
 ;;Vertical Navigation Across Wrapped Lines
 (kymp :n :j :gj)

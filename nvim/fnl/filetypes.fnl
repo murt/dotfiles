@@ -34,7 +34,8 @@
 ;;Null-ls
 (local sources
        [(if (executable! :fnlfmt) null_ls.builtins.formatting.fnlfmt)
-        (if (executable! :black) null_ls.builtins.formatting.black)])
+        (if (executable! :black) null_ls.builtins.formatting.black)
+        (if (executable! :sqlfmt) null_ls.builtins.formatting.sqlfmt)])
 
 (null_ls.setup {: sources})
 

@@ -64,13 +64,12 @@ Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-fugitive'
 
 "UI
-"Plug 'kdheepak/tabline.nvim'
 Plug 'nanozuki/tabby.nvim'
 Plug 'nvim-tree/nvim-tree.lua'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'lewis6991/gitsigns.nvim'
-"Plug 'delphinus/dwm.nvim'
-Plug 'mrjones2014/smart-splits.nvim'
+Plug 'delphinus/dwm.nvim'
+Plug 'akinsho/bufferline.nvim'
 
 "Misc
 Plug 'tpope/vim-eunuch'

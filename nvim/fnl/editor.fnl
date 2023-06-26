@@ -1,13 +1,12 @@
 (module editor {require {nvim aniseed.nvim
                          nvim_tree nvim-tree
+                         : dwm
                          : Comment
+                         : bufferline
                          : gitsigns
-                         ;;: tabline
                          : fidget
                          : telescope
                          : lsp_lines}})
-
-;;: dwm}})
 
 (set nvim.o.hidden true)
 
@@ -52,8 +51,30 @@
 ;; NvimTree
 (nvim_tree.setup)
 
-;; Tabs
-;;(tabline.setup {:options {:show_tabs_only true}})
+;; Buffer / Tab line
+(bufferline.setup {:options {:mode :tabs
+                             :separator_style :padded_slant
+                             :diagnostics :nvim_lsp
+                             :offsets [{:filetype :NvimTree
+                                        :text "File Explorer"
+                                        :highlight :Directory
+                                        :separator false}]}})
+
+;; Layout
+(dwm.setup {:key_maps false :master_pane_count 1 :master_pane_width "60%"})
+
+(lua "vim.api.nvim_create_autocmd({ 'BufRead' }, {
+  callback = function()
+    if vim.opt.buftype:get() == 'nofile' then
+      vim.b.dwm_disabled = true
+    end
+  end,
+})")
+
+(vim.api.nvim_create_autocmd [:BufRead]
+                             {:callback (fn []
+                                          (if (= (vim.opt.buftype:get) :nofile)
+                                              (set vim.b.dwm_disabled true)))})
 
 ;; Gutter
 (gitsigns.setup)
@@ -71,18 +92,3 @@
 ;; Comments
 (Comment.setup {})
 
-;; Layout
-;;(dwm.setup {:key_maps false :master_pane_count 1 :master_pane_width "60%"})
-
-;;(lua "vim.api.nvim_create_autocmd({ 'BufRead' }, {
-;;  callback = function()
-;;    if vim.opt.buftype:get() == 'nofile' then
-;;      vim.b.dwm_disabled = true
-;;    end
-;;  end,
-;;})")
-
-;;(vim.api.nvim_create_autocmd [:BufRead]
-;;                             {:callback (fn []
-;;                                          (if (= (vim.opt.buftype:get) :nofile)
-;;                                              (set vim.b.dwm_disabled true)))})

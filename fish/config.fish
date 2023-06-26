@@ -65,6 +65,9 @@ if type -q brew && test -e (brew --prefix asdf)/libexec/asdf.fish
     source (brew --prefix asdf)/libexec/asdf.fish
 end
 
+# Add local bin
+fish_add_path -a $HOME/.local/bin
+
 # Support for lsd if present
 if type -q lsd
     alias ls="lsd"
