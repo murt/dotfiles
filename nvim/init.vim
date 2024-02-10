@@ -18,6 +18,10 @@ call plug#begin(plugin_path)
 Plug 'nvim-lua/plenary.nvim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'nvim-tree/nvim-web-devicons'
+Plug 'folke/neoconf.nvim'
+Plug 'williamboman/mason.nvim'
+Plug 'WhoIsSethDaniel/mason-tool-installer.nvim'
+Plug 'williamboman/mason-lspconfig.nvim'
 
 "Enable Fennel Config
 Plug 'Olical/aniseed'
@@ -70,6 +74,7 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'delphinus/dwm.nvim'
 Plug 'akinsho/bufferline.nvim'
+Plug 'folke/edgy.nvim'
 
 "Misc
 Plug 'tpope/vim-eunuch'

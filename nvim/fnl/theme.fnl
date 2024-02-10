@@ -1,7 +1,10 @@
 (module theme {require {nvim aniseed.nvim : gotham : lualine : tint}})
 
 ;;Always show status bar
-(set nvim.o.laststatus 2)
+(set nvim.o.laststatus 3)
+
+;;Edgebar split maintenance
+(set nvim.o.splitkeep :screen)
 
 ;;Hide mode as it is part of status line now
 (nvim.ex.set :noshowmode)

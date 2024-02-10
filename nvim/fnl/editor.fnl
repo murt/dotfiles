@@ -6,7 +6,8 @@
                          : gitsigns
                          : fidget
                          : telescope
-                         : lsp_lines}})
+                         : lsp_lines
+                         : edgy}})
 
 (set nvim.o.hidden true)
 
@@ -92,3 +93,14 @@
 ;; Comments
 (Comment.setup {})
 
+;;Edgy
+(edgy.setup {
+             :left [
+                {
+                 :title :NvimTree
+                 :ft :NvimTree
+                 :pinned true
+                 }
+              ]
+                    
+})

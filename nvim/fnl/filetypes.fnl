@@ -24,12 +24,20 @@
     :indent {:enable true}
     :incremental_search {:enable true}})
 
+;;Lua
+(lspconfig.lua_ls.setup {})
+
+;;Fennel
+(lspconfig.fennel_language_server.setup {})
+
 ;;Rust
 (rt.setup {:tools {:inlay_hints {:auto false}} :server {}})
 
 ;;Python (via pyright)
-(if (executable! :pyright)
-    (lspconfig.pyright.setup {}))
+(if (and (executable! :asdf) (executable! :tr))
+  (set nvim.g.python3_host_prog (nvim.fn.system "asdf which python3 | tr -d '\\n'")))
+
+(lspconfig.pyright.setup {})
 
 ;;Null-ls
 (local sources
