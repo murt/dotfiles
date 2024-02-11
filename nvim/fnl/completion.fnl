@@ -21,5 +21,7 @@
                                           {:name :vsnip}
                                           {:name :buffer}])})
 
-(if (executable! :rust_analyzer)
-    ((. (. lspconfig :rust_analyzer) :setup) {:capabilities (cmp_nvim_lsp.default_capabilities)}))
+((. (. lspconfig :rust_analyzer) :setup) {:capabilities (cmp_nvim_lsp.default_capabilities)})
+((. (. lspconfig :pyright) :setup) {:capabilities (cmp_nvim_lsp.default_capabilities)})
+((. (. lspconfig :lua_ls) :setup) {:capabilities (cmp_nvim_lsp.default_capabilities)})
+((. (. lspconfig :fennel_language_server) :setup) {:capabilities (cmp_nvim_lsp.default_capabilities)})
