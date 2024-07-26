@@ -83,10 +83,17 @@ fish_add_path -a $HOME/.cargo/bin
 fish_add_path -a $HOME/vendor/bin
 
 # Gotham shell
-eval sh {$HOME}/.config/gotham/gotham.sh
+if test -e {$HOME}/.config/gotham/gotham.sh
+    eval sh {$HOME}/.config/gotham/gotham.sh
+end
 
 # iTerm 2 (if applicable)
 test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
+
+# Java env vars
+if test -e $(which javac) && test -e /usr/lib/jvm/default-java
+    set -gx JAVA_HOME /usr/lib/jvm/default-java
+end
 
 # Prompt
 set -gx STARSHIP_CONFIG $XDG_CONFIG_HOME/fish/starship.toml
@@ -95,3 +102,34 @@ starship init fish | source
 # tabtab source for packages
 # uninstall by removing these lines
 [ -f {$XDG_CONFIG_HOME}/tabtab/fish/__tabtab.fish ]; and . {$XDG_CONFIG_HOME}/tabtab/fish/__tabtab.fish; or true
+
+if test -e $(which direnv)
+    function __direnv_export_eval --on-event fish_prompt;
+        direnv export fish | source;
+
+        if test "$direnv_fish_mode" != "disable_arrow";
+            function __direnv_cd_hook --on-variable PWD;
+                if test "$direnv_fish_mode" = "eval_after_arrow";
+                    set -g __direnv_export_again 0;
+                else;
+                    direnv export fish | source;
+                end;
+            end;
+        end;
+    end;
+
+    function __direnv_export_eval_2 --on-event fish_preexec;
+        if set -q __direnv_export_again;
+            set -e __direnv_export_again;
+            direnv export fish | source;
+            echo;
+        end;
+
+        functions --erase __direnv_cd_hook;
+    end;
+end
+
+# Support for local user file
+if test -e {$XDG_CONFIG_HOME}/fish/user.fish
+    source $XDG_CONFIG_HOME/fish/user.fish
+end

@@ -2,7 +2,6 @@
                             treesitter nvim-treesitter.configs
                             null_ls null-ls
                             rt rust-tools
-                            ts_rainbow ts-rainbow
                             : lspconfig}
                    require-macros [macros]})
 
@@ -18,8 +17,8 @@
           :ruby
           :rust
           :typescript
-          :python]
-    :rainbow { :enable true :query :rainbow-parens :strategy ts_rainbow.strategy.global }
+          :python
+          :dart]
     :highlight {:enable true}
     :indent {:enable true}
     :incremental_search {:enable true}})
@@ -38,6 +37,9 @@
   (set nvim.g.python3_host_prog (nvim.fn.system "asdf which python3 | tr -d '\\n'")))
 
 (lspconfig.pyright.setup {})
+
+;;Dart
+(lspconfig.dartls.setup {})
 
 ;;Null-ls
 (local sources

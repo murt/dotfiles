@@ -1,5 +1,5 @@
 (module editor {require {nvim aniseed.nvim
-                         nvim_tree nvim-tree
+                         minifiles mini.files
                          : dwm
                          : Comment
                          : bufferline
@@ -49,17 +49,12 @@
 ;; Mouse
 (set nvim.o.mouse :a)
 
-;; NvimTree
-(nvim_tree.setup)
+(minifiles.setup {})
 
 ;; Buffer / Tab line
 (bufferline.setup {:options {:mode :tabs
                              :separator_style :padded_slant
-                             :diagnostics :nvim_lsp
-                             :offsets [{:filetype :NvimTree
-                                        :text "File Explorer"
-                                        :highlight :Directory
-                                        :separator false}]}})
+                             :diagnostics :nvim_lsp}})
 
 ;; Layout
 (dwm.setup {:key_maps false :master_pane_count 1 :master_pane_width "60%"})
@@ -94,13 +89,4 @@
 (Comment.setup {})
 
 ;;Edgy
-(edgy.setup {
-             :left [
-                {
-                 :title :NvimTree
-                 :ft :NvimTree
-                 :pinned true
-                 }
-              ]
-                    
-})
+(edgy.setup {})

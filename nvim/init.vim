@@ -28,7 +28,7 @@ Plug 'Olical/aniseed'
 
 "Treesitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'HiPhish/nvim-ts-rainbow2'
+Plug 'HiPhish/rainbow-delimiters.nvim'
 
 "Language Server
 Plug 'neovim/nvim-lspconfig'
@@ -69,7 +69,7 @@ Plug 'tpope/vim-fugitive'
 
 "UI
 Plug 'nanozuki/tabby.nvim'
-Plug 'nvim-tree/nvim-tree.lua'
+Plug 'echasnovski/mini.files'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'delphinus/dwm.nvim'

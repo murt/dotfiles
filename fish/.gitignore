@@ -2,3 +2,4 @@ completions
 conf.d
 functions
 fish_variables
+user.fish

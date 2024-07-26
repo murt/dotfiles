@@ -1,7 +1,15 @@
-(module keys {require {core aniseed.core nvim aniseed.nvim}
-              require-macros [macros]})
+(module keys {
+              require {
+                       core aniseed.core
+                       nvim aniseed.nvim
+                       : utils
+              }
+              require-macros [macros]
+              }
+  )
 
 ;;Maps a key in a mode - disallows remapping and is by default silent.
+;;TODO: This can probably be switched to fn
 (defn- kymp [mode from to ?opts]
        (nvim.set_keymap mode from to
                         (core.concat {:noremap true} (or ?opts {:silent true}))))
@@ -59,11 +67,14 @@
 (kymp :n :<leader>/ ":nohlsearch<CR>")
 
 ;;Tree
-(kymp :n :<leader>e ":NvimTreeToggle<CR>")
+(kymp :n :<leader>e "<cmd>lua MiniFiles.open()<CR>")
 
 ;;Finder
-(kymp :n :<C-p> ":Telescope git_files<CR>")
-(kymp :n :<C-f> ":Telescope find_files<CR>")
+(if (utils.isgit)
+  (kymp :n :<C-p> ":Telescope git_files<CR>")
+  (kymp :n :<C-p> ":Telescope find_files<CR>")
+)
+
 (if (executable! :rg)
     (kymp :n :<leader>f ":Telescope live_grep<CR>")
     (kymp :n :<leader>f ":Telescope grep_string<CR>"))
