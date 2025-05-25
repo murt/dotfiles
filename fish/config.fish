@@ -4,6 +4,8 @@ set fish_greeting
 # XDG Spec
 set -gx XDG_CONFIG_HOME $HOME/.config
 set -gx XDG_DATA_HOME $HOME/.local/share
+set -gx XDG_STATE_HOME $HOME/.local/state
+set -gx XDG_CACHE_HOME $HOME/.cache
 
 # Environment variables
 set -gx DOTNET_CLI_TELEMETRY_OPTOUT 1
@@ -58,8 +60,9 @@ if test -e /opt/homebrew/bin
 end
 
 # ASDF - support for both normal install and homebrew
-if test -e {$HOME}/.asdf/asdf.fish
-    source $HOME/.asdf/asdf.fish
+set -gx ASDF_DATA_DIR $HOME/.asdf
+if test -e $ASDF_DATA_DIR/asdf.fish
+    source $ASDF_DATA_DIR/asdf.fish
 end
 if type -q brew && test -e (brew --prefix asdf)/libexec/asdf.fish
     source (brew --prefix asdf)/libexec/asdf.fish
@@ -127,6 +130,14 @@ if type -q direnv
 
         functions --erase __direnv_cd_hook;
     end;
+end
+
+# pnpm
+if type -q pnpm
+    set -gx PNPM_HOME $XDG_DATA_HOME/pnpm
+    if not string match -q -- $PNPM_HOME $PATH
+        fish_add_path -a $PNPM_HOME
+    end
 end
 
 # Support for local user file

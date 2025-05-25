@@ -69,12 +69,14 @@ Plug 'tpope/vim-fugitive'
 
 "UI
 Plug 'nanozuki/tabby.nvim'
-Plug 'echasnovski/mini.files'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'delphinus/dwm.nvim'
 Plug 'akinsho/bufferline.nvim'
+Plug 'Iron-E/nvim-cartographer'
 Plug 'folke/edgy.nvim'
+Plug 'mikew/nvim-drawer'
+Plug 'nvim-tree/nvim-tree.lua'
 
 "Misc
 Plug 'tpope/vim-eunuch'

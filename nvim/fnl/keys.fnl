@@ -42,16 +42,6 @@
 (kymp :n "<leader>[" ":tabprev<CR>")
 (kymp :n "<leader>]" ":tabnext<CR>")
 
-;;Splits
-(kymp :n :<C-n> ":lua require('dwm').new()<CR>")
-(kymp :n :<C-j> :<C-w>w)
-(kymp :n :<C-k> :<C-w>W)
-(kymp :n :<C-H> ":lua require('dwm').shrink()<CR>")
-(kymp :n :<C-L> ":lua require('dwm').grow()<CR>")
-(kymp :n :<C-Space> ":lua require('dwm').focus()<CR>")
-(kymp :n :<C-S-J> ":lua require('dwm').rotateRight()<CR>")
-(kymp :n :<C-S-K> ":lua require('dwm').rotateLeft()<CR>")
-
 ;;Vertical Navigation Across Wrapped Lines
 (kymp :n :j :gj)
 (kymp :n :k :gk)
@@ -65,9 +55,6 @@
 
 ;;Faster Clearing of Search Highlights
 (kymp :n :<leader>/ ":nohlsearch<CR>")
-
-;;Tree
-(kymp :n :<leader>e "<cmd>lua MiniFiles.open()<CR>")
 
 ;;Finder
 (if (utils.isgit)

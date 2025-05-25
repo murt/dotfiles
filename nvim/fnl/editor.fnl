@@ -1,13 +1,16 @@
 (module editor {require {nvim aniseed.nvim
-                         minifiles mini.files
-                         : dwm
+                         tree :nvim-tree
+                         tree_api :nvim-tree.api
+                         drawer :nvim-drawer
+                         map :cartographer
                          : Comment
                          : bufferline
                          : gitsigns
                          : fidget
                          : telescope
                          : lsp_lines
-                         : edgy}})
+                         : edgy
+                         }})
 
 (set nvim.o.hidden true)
 
@@ -49,28 +52,45 @@
 ;; Mouse
 (set nvim.o.mouse :a)
 
-(minifiles.setup {})
-
 ;; Buffer / Tab line
 (bufferline.setup {:options {:mode :tabs
                              :separator_style :padded_slant
                              :diagnostics :nvim_lsp}})
 
 ;; Layout
-(dwm.setup {:key_maps false :master_pane_count 1 :master_pane_width "60%"})
+(edgy.setup {})
 
-(lua "vim.api.nvim_create_autocmd({ 'BufRead' }, {
-  callback = function()
-    if vim.opt.buftype:get() == 'nofile' then
-      vim.b.dwm_disabled = true
-    end
-  end,
-})")
+;; Tree
+(tree.setup {})
 
-(vim.api.nvim_create_autocmd [:BufRead]
-                             {:callback (fn []
-                                          (if (= (vim.opt.buftype:get) :nofile)
-                                              (set vim.b.dwm_disabled true)))})
+(drawer.setup)
+(drawer.create_drawer {
+                       :size 40
+                       :position :left
+                       :should_reuse_previous_bufnr false
+                       :should_close_on_bufwipeout true
+
+                       ; Keymap for toggling
+                       :on_vim_enter (fn [evt]
+                                       (evt.instance.open { :focus false })
+                                       ; Using cartographer here for function binding - this will focus or toggle
+                                       (tset map.n.nore.silent :<leader>e evt.instance.toggle)
+                                       )
+
+                       ; Generate event structure
+                       :on_did_create_buffer (fn []
+                                               (tree_api.tree.open { :current_window true })
+                                               )
+                       :on_did_open (fn []
+                                      (tree_api.tree.reload)
+                                      (set nvim.o.number false)
+                                      (set nvim.o.signcolumn :no)
+                                      (set nvim.o.statuscolumn "")
+                                      )
+                       :on_did_close (fn []
+                                      (tree_api.tree.close)
+                                      )
+                       })
 
 ;; Gutter
 (gitsigns.setup)
