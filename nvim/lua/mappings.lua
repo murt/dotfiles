@@ -1,5 +1,3 @@
-require "nvchad.mappings"
-
 local conform = require "conform"
 
 -- Utilities

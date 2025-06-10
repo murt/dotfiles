@@ -1,16 +1,17 @@
 return {
     {
         "neovim/nvim-lspconfig",
+        lazy = false,
         config = function()
             require "configs.lspconfig"
         end,
     },
+    { "mason-org/mason.nvim", lazy = false, opts = {} },
     {
         "mfussenegger/nvim-lint"
     },
     {
         "stevearc/conform.nvim",
-        -- event = 'BufWritePre', -- uncomment for format on save
         opts = require "configs.conform",
     },
 
@@ -63,27 +64,29 @@ return {
         "mason-org/mason-lspconfig.nvim",
         opts = {},
         dependencies = {
+       	    "mason-org/mason.nvim",
             "neovim/nvim-lspconfig",
         },
     },
     {
         "rshkarin/mason-nvim-lint",
+        lazy = false,
         dependencies = {
+            "mason-org/mason.nvim",
             "mfussenegger/nvim-lint",
         },
     },
     {
         "zapling/mason-conform.nvim",
+        lazy = false,
         dependencies = {
+            "mason-org/mason.nvim",
             "stevearc/conform.nvim",
         },
     },
-
-    -- test new blink
-    { import = "nvchad.blink.lazyspec" },
-
     {
         "nvim-treesitter/nvim-treesitter",
+        lazy = false,
         opts = {
             ensure_installed = {
                 "vim",
