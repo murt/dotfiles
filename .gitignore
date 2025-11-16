@@ -1,0 +1,6 @@
+# Too localised per system
+git/config
+
+# Goose isn't ready yet
+goose/
+
