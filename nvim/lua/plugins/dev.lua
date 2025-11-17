@@ -7,13 +7,13 @@ return {
 	{
 		"mason-org/mason-lspconfig.nvim",
 		opts = {
-			ensure_installed = { "lua_ls", "ruff" },
+			ensure_installed = { "lua_ls", "ruff", "ts_ls" },
 		},
 	},
 	{
 		"zapling/mason-conform.nvim",
 		opts = {
-			ensure_installed = { "stylua" },
+			ensure_installed = { "stylua", "prettier" },
 		},
 	},
 	{
@@ -47,6 +47,11 @@ return {
 				settings = {
 					logLevel = "debug",
 				},
+			})
+
+			-- TypeScript
+			vim.lsp.config("ts_ls", {
+				single_file_support = true,
 			})
 		end,
 	},
@@ -97,6 +102,10 @@ return {
 					"ruff_format",
 					"ruff_organize_imports",
 				},
+				typescript = { "prettier" },
+				typescriptreact = { "prettier" },
+				javascript = { "prettier" },
+				javascriptreact = { "prettier" },
 			},
 		},
 	},

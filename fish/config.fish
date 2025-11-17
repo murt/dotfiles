@@ -12,6 +12,8 @@ set -gx DOTNET_CLI_TELEMETRY_OPTOUT 1
 set -gx HF_HUB_DISABLE_TELEMETRY 1
 set -gx CLAUDE_CODE_ENABLE_TELEMETRY 0
 set -gx DISABLE_AUTOUPDATER 1
+set -gx STORYBOOK_DISABLE_TELEMETRY 1
+set -gx ALLURE_NO_ANALYTICS 1
 
 # Theme - run this to set the theme
 #fish_config theme save "Catppuccin Mocha"

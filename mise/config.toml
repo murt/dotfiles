@@ -1,10 +1,12 @@
 [tools]
+allure = "2.35.1"
 dotnet = "9.0.306"
 go = "1.25.3"
 helix = "25.07.1"
 java = "25.0.0"
 julia = "1.12.0"
 lua = "5.4.7"
+maven = "3.8.9"
 neovim = "0.11.4"
 node = "24.3.0"
 pnpm = "10.19.0"
@@ -14,6 +16,7 @@ ruff = "0.14.1"
 rust = "1.90.0"
 tree-sitter = "0.25.10"
 uv = "0.9.5"
+yarn = "1.22.19"
 
 [settings]
 python.uv_venv_auto = true
