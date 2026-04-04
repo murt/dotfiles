@@ -1,0 +1,36 @@
+"Editor
+set incsearch
+set hlsearch
+set smartcase
+set number
+set clipboard+=unnamed
+
+let mapleader=','
+
+set easymotion
+
+noremap ; :
+inoremap jk <esc>
+
+"Navigation
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> :action PrevSplitter<CR>
+nnoremap <C-k> :action NextSplitter<CR>
+nnoremap <C-l> <C-w>l
+
+"Tabs
+nnoremap <Leader>] :action NextTab<CR>
+nnoremap <Leader>[ :action PreviousTab<CR>
+nnoremap <Leader>w :action CloseContent<CR>
+
+"Search
+nnoremap <Leader>/ :nohlsearch<CR>
+
+"Undo/Redo
+noremap <C-Z> u
+inoremap <C-Z> <C-O>u
+noremap <C-Y> <C-R>
+inoremap <C-Y> <C-O><C-R
+
+"Actions
+nnoremap FF :action ReformatCode<CR>
