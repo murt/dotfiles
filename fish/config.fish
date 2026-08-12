@@ -37,8 +37,13 @@ fish_add_path -a $HOME/.local/bin
 
 # Mise
 if type -q mise
-     mise activate fish --shims | source
-     fish_add_path --global --move --path $XDG_DATA_HOME/mise/shims
+    mise activate fish --shims | source
+    fish_add_path --global --move --path $XDG_DATA_HOME/mise/shims
+end
+
+# Kubernetes
+if type -q kubectl
+    kubectl completion fish | source
 end
 
 # Support for lsd if present
