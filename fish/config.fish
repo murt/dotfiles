@@ -35,6 +35,12 @@ end
 # Add local bin
 fish_add_path -a $HOME/.local/bin
 
+# Mise
+if type -q mise
+     mise activate fish --shims | source
+     fish_add_path --global --move --path $XDG_DATA_HOME/mise/shims
+end
+
 # Support for lsd if present
 if type -q lsd
     alias ls="lsd"
@@ -79,9 +85,4 @@ end
 
 # Support GPG signing
 set -gx GPG_TTY = (tty)
-
-
-# Added by LM Studio CLI (lms)
-set -gx PATH $PATH /Users/matt/.lmstudio/bin
-# End of LM Studio CLI section
 
